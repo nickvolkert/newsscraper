@@ -1,0 +1,35 @@
+<div id="burgerContainer">
+  <div id="daBurger"></div>
+  <h1>Eat Da Burger</h1>
+  <h2>Enter a burger below! Eat it? Click Devoured!</h2>
+  <div id="burgerWrapper" class="clearfix">
+    <div id="unEaten" class="clearfix">
+      <h3>Burgers to Devour! NOM NOM</h3>
+      <ul>
+        {{#each burger}}
+          {{#unless devoured}}
+          	 {{> burgers/burgers devoured=false}}
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div id="eaten" class="clearfix">
+      <h3>Devoured Burgers! TASTY</h3>
+      <ul>
+        {{#each burger}}
+          {{#if devoured}}
+          <li>
+          	<p>{{this.name}}</p>
+          </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div id="burgerFormArea" class="clearfix">
+    <form action="/" method="POST">
+    	<input type="text" name="burgerForm" id="burgerForm"></input>
+      <button type="submit" id="burgerBTN">Add a Burger</button>
+    </form>
+  </div>
+</div>
