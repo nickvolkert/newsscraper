@@ -1,35 +1,29 @@
-<div id="burgerContainer">
-  <div id="daBurger"></div>
-  <h1>Eat Da Burger</h1>
-  <h2>Enter a burger below! Eat it? Click Devoured!</h2>
-  <div id="burgerWrapper" class="clearfix">
-    <div id="unEaten" class="clearfix">
-      <h3>Burgers to Devour! NOM NOM</h3>
+<div id="newsContainer">
+  <div id="newsHero">
+    <h1>Eat Da Burger</h1>
+    <h2>Enter a burger below! Eat it? Click Devoured!</h2>
+  </div>
+  <div id="newsWrapper" class="clearfix">
+    <div id="unRead" class="clearfix">
+      <h3>Unread News!</h3>
       <ul>
-        {{#each burger}}
-          {{#unless devoured}}
-          	 {{> burgers/burgers devoured=false}}
+        {{#each news}}
+          {{#unless deleted}}
+          	 {{> news/news deleted=true}}
           {{/unless}}
         {{/each}}
       </ul>
     </div>
-    <div id="eaten" class="clearfix">
-      <h3>Devoured Burgers! TASTY</h3>
-      <ul>
-        {{#each burger}}
-          {{#if devoured}}
-          <li>
-          	<p>{{this.name}}</p>
-          </li>
-          {{/if}}
-        {{/each}}
-      </ul>
-    </div>
   </div>
-  <div id="burgerFormArea" class="clearfix">
-    <form action="/" method="POST">
-    	<input type="text" name="burgerForm" id="burgerForm"></input>
-      <button type="submit" id="burgerBTN">Add a Burger</button>
-    </form>
+  <div id="modal">
+    <div id="scrapeAlert">
+      <h2>Hooray: <span id="articlesScrapedAlert"></span> articles scraped</h2>
+    </div>
+    <div id="noteFormArea" class="clearfix">
+      <form action="/" method="POST">
+      	<input type="text" name="newsForm" id="noteForm"></input>
+        <button type="submit" id="noteBTN">Write a note</button>
+      </form>
+    </div>
   </div>
 </div>
