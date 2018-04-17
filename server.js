@@ -6,7 +6,10 @@ var cheerio = require("cheerio");
 var logger = require("morgan");
 var request = require("request");
 var axios = require("axios");
+var router = require("express").Router();
 
+var Scraper = require("./controllers/Scraper");
+router.get("/", scraper);
 // Require all models
 var db = require("./models");
 

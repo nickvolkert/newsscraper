@@ -1,13 +1,14 @@
 <article class="clearfix">
 	<header>
 		<h2><a href="{{link}}">{{title}}</a></h2>
-
-		<button class="showNotes" data-id="{{id}}" data-article="{{link}}">
-			Article Notes
-		</button>
-		<button class="deleteArticle" data-id="{{id}}" data-article="{{link}}">
-			Delete From Saved
-		</button>
+		<div class="buttonsRight">
+			<button class="showNotes" data-id="{{id}}" data-article="{{link}}">
+				Article Notes
+			</button>
+			<button class="deleteArticle" data-id="{{id}}" data-article="{{link}}">
+				Delete From Saved
+			</button>
+		</div>
 	</header>
 	<p>{{summary}}</p>
 	<p>{{author}}</p>
