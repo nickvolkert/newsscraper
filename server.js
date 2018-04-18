@@ -6,10 +6,7 @@ var cheerio = require("cheerio");
 var logger = require("morgan");
 var request = require("request");
 var axios = require("axios");
-var router = require("express").Router();
 
-var Scraper = require("./controllers/Scraper");
-router.get("/", scraper);
 // Require all models
 var db = require("./models");
 
@@ -35,8 +32,9 @@ mongoose.connect(MONGODB_URI, {
 //Handlebars stuff maybe?
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-var routes = require("./controllers/newsController.js");
-app.use(routes);
+
+
+require("./controllers/scraper.js")(app);
 
 // Start the server
 app.listen(PORT, function() {

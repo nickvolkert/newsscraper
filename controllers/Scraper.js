@@ -1,9 +1,7 @@
 
-var express = require("express");
-var app = express();
+var express = require('express');
 
-
-module.exports = {
+function router (app){
     // A GET route for scraping the echoJS website
     app.get("/scrape", function(req, res) {
       // First, we grab the body of the html with request
@@ -29,7 +27,7 @@ module.exports = {
             // .children("author")
             .text();
           result.time = $(this)
-            .children(.time)
+            // .children(.time)
             .text();
 
           // Create a new Article using the `result` object built from scraping
@@ -98,4 +96,5 @@ module.exports = {
           res.json(err);
         });
     });
-}
+  }
+    module.exports = router;

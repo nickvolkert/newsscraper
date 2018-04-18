@@ -3,6 +3,5 @@
 module.exports = {
   Article: require("./Article"),
   Note: require("./Note"),
-  Scraper: require("./Scraper"),
   News: require("./News")
 };
