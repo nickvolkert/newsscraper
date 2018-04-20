@@ -7,20 +7,23 @@ var logger = require("morgan");
 var request = require("request");
 var axios = require("axios");
 
+// Initialize Express
+var app = express();
+var PORT = process.env.PORT || 8080;
+
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT || 8080;
-
-// Initialize Express
-var app = express();
-
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Use body-parser for handling form submissions
-app.use(bodyParser.urlencoded({ extended: true }));
-// Use express.static to serve the public folder as a static directory
+// Sets up the Express app to handle data parsing
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+// Use morgan logger for logging requests
+// app.use(logger("dev"));
+// // Use body-parser for handling form submissions
+// app.use(bodyParser.urlencoded({ extended: true }));
+// // Use express.static to serve the public folder as a static directory
+// app.use(express.static("public"));
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscraper";
 // Connect to the Mongo DB
@@ -34,7 +37,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-require("./controllers/scraper.js")(app);
+require("./controllers")(app);
 
 // Start the server
 app.listen(PORT, function() {
