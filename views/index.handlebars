@@ -10,10 +10,23 @@
     <div id="unRead" class="clearfix">
       <h3>Unread News!</h3>
       <ul>
-        {{#each news}}
-          {{#unless deleted}}
-          	 {{> news/news deleted=true}}
-          {{/unless}}
+        {{#each articles}}
+          <article class="clearfix">
+            <header>
+              <h2><a href="{{link}}">{{title}}</a></h2>
+              <div class="buttonsRight">
+                <button class="showNotes" data-id="{{id}}" data-article="{{link}}">
+                  Article Notes
+                </button>
+                <button class="deleteArticle" data-id="{{id}}" data-article="{{link}}">
+                  Delete From Saved
+                </button>
+              </div>
+            </header>
+            <p>{{summary}}</p>
+            <p>{{author}}</p>
+            <p>{{time}}</p>
+          </article>
         {{/each}}
       </ul>
     </div>

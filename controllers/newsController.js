@@ -1,23 +1,25 @@
 var express = require("express");
 
 var router = express.Router();
-
-// Import the model (cat.js) to use its database functions.
-var news = require("../models/news.js");
-
+var db = require("../models");
+var mongoose = require("mongoose");
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burger.all(function(data) {
-    var hasObject = {
-      news: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
-  });
+  // Grab every document in the Articles collection
+  db.Article.find({})
+    .then(function(articles) {
+      console.log("articles scraped:", articles);
+      // If we were able to successfully find Articles, send them back to the client
+      res.render("index", articles)
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
 });
 
 router.post("/api/news", function(req, res) {
-  burger.create([
+  db.Article.create([
       "name", "read"
   ], [
     req.body.name, req.body.devoured
@@ -32,7 +34,7 @@ router.put("/api/news/:id", function(req, res) {
 
   console.log("condition", condition);
 
-  burger.update({
+  db.Article.update({
     scraped: true
   }, condition, function(result) {
     if (result.changedRows == 0) {

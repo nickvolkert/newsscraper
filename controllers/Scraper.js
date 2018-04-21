@@ -3,6 +3,7 @@ var express = require('express');
 var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("../models");
+var app = express();
 
 function router (app){
     // A GET route for scraping the echoJS website
