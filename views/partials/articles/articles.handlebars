@@ -1,31 +1,41 @@
-<article class="clearfix">
-	<header>
+<!-- <article class="card clearfix">
+	<header class="card-header">
 		<h2><a href="{{link}}">{{title}}</a></h2>
-		<div class="buttonsRight">
-			<button class="showNotes" data-id="{{id}}" data-article="{{link}}">
+		<div class="buttonsRight mt-2 mt-md-0">
+			<button class="btn btn-outline-primary btn-sm showNotes" data-id="{{id}}" data-article="{{link}}">
 				Article Notes
 			</button>
-			<button class="deleteArticle" data-id="{{id}}" data-article="{{link}}">
+			<button class="btn btn-outline-danger btn-sm deleteArticle" data-id="{{id}}" data-article="{{link}}">
 				Delete From Saved
 			</button>
 		</div>
 	</header>
-	<p>{{summary}}</p>
-	<p>{{author}}</p>
-	<p>{{time}}</p>
-</article>
+	<div class="card-body">
+		<p class="card-text">{{summary}}</p>
+		<p class="card-text">{{author}}</p>
+		<p class="card-text">{{time}}</p>
+	</div>
+</article> -->
 
-<!-- result.title = $(this)
-	.text();
-result.summary = $(this)
-	.children("a")
-	.text();
-result.link = $(this)
-	.children("a")
-	.attr("href");
-result.author = $(this)
-	// .children("author")
-	.text();
-result.time = $(this)
-	// .children(.time)
-	.text(); -->
+	<article class="col-md-6">
+          <div class="card box-shadow h-md-250">
+            <div class="cardBody">
+              <strong class="d-inline-block mb-2 text-primary">DC</strong>
+              <h3>
+                <a class="text-dark" href="{{link}}">{{title}}</a>
+              </h3>
+							<div class="text-muted">{{time}}</div>
+              <p class="card-text">{{summary}}</p>
+              <a href="{{link}}">Continue reading</a>
+            </div>
+            <img class="imgRight" src="{{image}}">
+						<div class="buttonsBtm">
+							<button class="btn btn-outline-primary btn-sm showNotes" data-id="{{id}}" data-article="{{link}}">
+								Article Notes
+							</button>
+							<button class="btn btn-outline-danger btn-sm deleteArticle" data-id="{{id}}" data-article="{{link}}">
+								Delete From Saved
+							</button>
+						</div>
+					</div>
+        </article>

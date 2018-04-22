@@ -1,5 +1,5 @@
-<div id="newsContainer">
-  <div id="newsHero">
+<div id="newsContainer" class="container">
+  <div id="newsHero" class="jumbotron">
     <h1>Mongo News Scraper</h1>
     <h2>Click scrape to view articles, mark as read and apply notes!</h2>
   </div>
@@ -9,37 +9,23 @@
     </div>
     <div id="unRead" class="clearfix">
       <h3>Unread News!</h3>
-      <ul>
-        {{#each articles}}
-          <article class="clearfix">
-            <header>
-              <h2><a href="{{link}}">{{title}}</a></h2>
-              <div class="buttonsRight">
-                <button class="showNotes" data-id="{{id}}" data-article="{{link}}">
-                  Article Notes
-                </button>
-                <button class="deleteArticle" data-id="{{id}}" data-article="{{link}}">
-                  Delete From Saved
-                </button>
-              </div>
-            </header>
-            <p>{{summary}}</p>
-            <p>{{author}}</p>
-            <p>{{time}}</p>
-          </article>
-        {{/each}}
-      </ul>
+        <div class="row mb-2">
+          {{#each articles}}
+
+          {{/each}}
+        </div>
     </div>
+  </div>
   </div>
   <div id="modal">
     <div id="scrapeAlert">
       <h2>Hooray: <span id="articlesScrapedAlert"></span> articles scraped</h2>
+      <div class="loader"></div>
     </div>
     <div id="noteFormArea" class="clearfix">
       <form action="/" method="POST">
       	<input type="text" name="newsForm" id="noteForm"></input>
-        <button type="submit" id="noteBTN">Write a note</button>
+        <button type="submit" id="noteBTN" class="btn btn-outline-primary">Write a note</button>
       </form>
     </div>
   </div>
-</div>

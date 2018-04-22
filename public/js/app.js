@@ -70,3 +70,13 @@ $(document).on("click", "#savenote", function() {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
+
+$("#scrapeLink").on("click", function(){
+  $("#noteFormArea").hide();
+  $("#modal").show();
+  $("#scrapeAlert").show();
+  $("#noScrapes").hide();
+  setTimeout(function(){
+    $("#modal").hide();
+  }, 2000);
+});
