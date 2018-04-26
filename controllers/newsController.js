@@ -9,8 +9,11 @@ router.get("/", function(req, res) {
   db.Article.find({})
     .then(function(articles) {
       console.log("articles scraped:", articles);
+      var articlesObj = {
+        articles: articles
+      }
       // If we were able to successfully find Articles, send them back to the client
-      res.render("index", articles)
+      res.render("index", articlesObj)
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
