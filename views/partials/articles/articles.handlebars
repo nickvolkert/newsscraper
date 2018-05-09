@@ -1,30 +1,11 @@
-<!-- <article class="card clearfix">
-	<header class="card-header">
-		<h2><a href="{{link}}">{{title}}</a></h2>
-		<div class="buttonsRight mt-2 mt-md-0">
-			<button class="btn btn-outline-primary btn-sm showNotes" data-id="{{id}}" data-article="{{link}}">
-				Article Notes
-			</button>
-			<button class="btn btn-outline-danger btn-sm deleteArticle" data-id="{{id}}" data-article="{{link}}">
-				Delete From Saved
-			</button>
-		</div>
-	</header>
-	<div class="card-body">
-		<p class="card-text">{{summary}}</p>
-		<p class="card-text">{{author}}</p>
-		<p class="card-text">{{time}}</p>
-	</div>
-</article> -->
-
-	<article class="col-md-6">
+	<article class="col-md-6" data-id="{{id}}">
           <div class="card box-shadow h-md-250">
             <div class="cardBody">
               <strong class="d-inline-block mb-2 text-primary">DC</strong>
               <h3>
                 <a class="text-dark" href="{{link}}">{{title}}</a>
               </h3>
-							<div class="text-muted">{{time}}</div>
+							<div class="text-muted"><p>{{author}} | {{time}}</p></div>
               <p class="card-text">{{summary}}</p>
               <a href="{{link}}">Continue reading</a>
             </div>

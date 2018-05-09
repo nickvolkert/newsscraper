@@ -55,14 +55,14 @@ app.get("/scrape", function(req, res) {
         .children("a")
         .attr("href");
       result.author = $(this)
-        // .children("author")
+        .find(".author")
         .text();
       result.time = $(this)
-        // .children(.time)
+        .find("time")
         .text();
       result.image = $(this)
-          .children("a img")
-          .text();
+          .find("img")
+          .attr("src");
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {

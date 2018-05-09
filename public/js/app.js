@@ -9,9 +9,11 @@ $.getJSON("/articles", function(data) {
 
 
 // Whenever someone clicks a p tag
-$(document).on("click", "h2", function() {
+$(document).on("click", ".showNotes", function() {
   // Empty the notes from the note section
-  $("#notes").empty();
+  $("#noteForm").empty();
+  $("#modal").show();
+  $("noteFormArea").show();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
 
@@ -43,7 +45,7 @@ $(document).on("click", "h2", function() {
 });
 
 // When you click the savenote button
-$(document).on("click", "#savenote", function() {
+$(document).on("click", "#noteBTN", function() {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
 
@@ -53,9 +55,9 @@ $(document).on("click", "#savenote", function() {
     url: "/articles/" + thisId,
     data: {
       // Value taken from title input
-      title: $("#titleinput").val(),
+      title: $("#noteForm").val(),
       // Value taken from note textarea
-      body: $("#bodyinput").val()
+      body: $("#bodyInput").val()
     }
   })
     // With that done
@@ -71,12 +73,21 @@ $(document).on("click", "#savenote", function() {
   $("#bodyinput").val("");
 });
 
-$("#scrapeLink").on("click", function(){
-  $("#noteFormArea").hide();
-  $("#modal").show();
-  $("#scrapeAlert").show();
-  $("#noScrapes").hide();
-  setTimeout(function(){
-    $("#modal").hide();
-  }, 2000);
+$(document).ready(function() {
+  $("#scrapeLink").on("click", function(){
+    articleScraperBTN();
+    console.log("articles scraped!")
+    $("#noteFormArea").hide();
+    $("#modal").show();
+    $("#scrapeAlert").show();
+    $("#noScrapes").hide();
+    setTimeout(function(){
+      $("#modal").hide();
+    }, 2000);
+  });
+  function articleScraperBTN() {
+    $.get("/scrape").then(function(data) {
+      console.log("we have a scrape!");
+    });
+  }
 });
