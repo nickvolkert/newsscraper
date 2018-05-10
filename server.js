@@ -55,7 +55,7 @@ app.get("/scrape", function(req, res) {
         .children("a")
         .attr("href");
       result.author = $(this)
-        .find(".author")
+        .siblings("p").find(".author")
         .text();
       result.time = $(this)
         .find("time")
@@ -130,6 +130,9 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+// app.post("/notes/:id", function(req, res){
+//
+// }
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

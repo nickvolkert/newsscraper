@@ -7,7 +7,7 @@ $.getJSON("/articles", function(data) {
   }
 });
 
-
+var thisId;
 // Whenever someone clicks a p tag
 $(document).on("click", ".showNotes", function() {
   // Empty the notes from the note section
@@ -15,7 +15,8 @@ $(document).on("click", ".showNotes", function() {
   $("#modal").show();
   $("noteFormArea").show();
   // Save the id from the p tag
-  var thisId = $(this).attr("data-id");
+  thisId = $(this).attr("data-id");
+  console.log(thisId);
 
   // Now make an ajax call for the Article
   $.ajax({
@@ -47,7 +48,8 @@ $(document).on("click", ".showNotes", function() {
 // When you click the savenote button
 $(document).on("click", "#noteBTN", function() {
   // Grab the id associated with the article from the submit button
-  var thisId = $(this).attr("data-id");
+  // thisId = $(this).attr("data-id");
+  console.log(thisId);
 
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
@@ -57,7 +59,7 @@ $(document).on("click", "#noteBTN", function() {
       // Value taken from title input
       title: $("#noteForm").val(),
       // Value taken from note textarea
-      body: $("#bodyInput").val()
+      body: $("#noteBody").val()
     }
   })
     // With that done
@@ -88,6 +90,7 @@ $(document).ready(function() {
   function articleScraperBTN() {
     $.get("/scrape").then(function(data) {
       console.log("we have a scrape!");
+      window.location.href="/";
     });
   }
 });
