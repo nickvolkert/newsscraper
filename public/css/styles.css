@@ -44,24 +44,49 @@
   background-color: rgb(255,255,255);
   background-color: rgba(255,255,255,0.9);
 }
-#scrapeAlert{
-  width:300px;
-  height: 300px;
+#scrapeAlert,
+#noteFormArea{
   background-color: #FFF;
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
   width:390px;
-  height:150px;
   margin:50px auto;
   border-radius: 5px;
   padding:20px;
 }
-#scrapeAlert h2{
+#scrapeAlert{
+  height:150px;
+}
+#modal h2{
   text-align: center;
   font-size:28px;
   color:#999;
 }
-#noteFormArea{
-
+#noteFormArea label{
+  font-size: 11px;
+}
+#noteFormArea hr{
+  width:350px;
+  color:#777;
+}
+#noteForm{
+  margin-bottom: 7px;
+  height: 36px;
+}
+#noteForm,
+#noteBody{
+  width:330px;
+  border-color: #777;
+  border: 1px solid #CCC;
+  padding: 10px;
+}
+#noteBody{
+  height:150px;
+  resize: none;
+}
+#noteBTN{
+  margin: 20px auto 0 auto;
+  width: 220px;
+  display: block;
 }
 .loader {
    border: 2px solid #f3f3f3; /* Light grey */

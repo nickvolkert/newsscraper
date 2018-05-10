@@ -11,7 +11,9 @@ var thisId;
 // Whenever someone clicks a p tag
 $(document).on("click", ".showNotes", function() {
   // Empty the notes from the note section
-  $("#noteForm").empty();
+  $("#scrapeAlert").hide();
+  $("#noteForm").empty('');
+  $("#noteBody").empty('');
   $("#modal").show();
   $("noteFormArea").show();
   // Save the id from the p tag

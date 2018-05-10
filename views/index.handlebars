@@ -19,12 +19,16 @@
   </div>
   <div id="modal">
     <div id="scrapeAlert">
-      <h2>Hooray: <span id="articlesScrapedAlert"></span> articles scraped</h2>
+      <h2>Hooray articles scraped!</h2>
       <div class="loader"></div>
     </div>
     <div id="noteFormArea" class="clearfix">
+      <h2>Jot a note!</h2>
+      <hr/>
       <form>
+        <label for="newsForm">Subject</label>
       	<input type="text" name="newsForm" id="noteForm"></input>
+        <label for="bodyInput">Your Note:</label>
         <textarea type="text" name="bodyInput" id="noteBody"></textarea>
         <button type="submit" id="noteBTN" class="btn btn-outline-primary">Write a note</button>
       </form>

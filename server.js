@@ -40,29 +40,19 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $(".headline-box h3").each(function(i, element) {
+    $("article").each(function(i, element) {
       // Save an empty result object
       var result = {};
-
+      // var imgSrc = $("article").find("a").children("img").attr("src");
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
-        .children("a")
-        .text();
-      result.summary = $(this)
-        .children("a")
-        .text();
-      result.link = $(this)
-        .children("a")
-        .attr("href");
-      result.author = $(this)
-        .siblings("p").find(".author")
-        .text();
-      result.time = $(this)
-        .find("time")
-        .text();
-      result.image = $(this)
-          .find("img")
-          .attr("src");
+      result.title = $(this).find("h3").children("a").text();
+      result.summary = $(this).children("a").text();
+      result.link = $(this).children("a").attr("href");
+      result.author = $(this).find("p.meta").children(".author").text();
+      result.time = $(this).find("time").text();
+      // result.imageCheer = imgSrc;
+      // console.log(imgSrc + " result");
+      // console.log(imageCheer + " result");
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
